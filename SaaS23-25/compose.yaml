@@ -1,0 +1,140 @@
+version: '1'
+services:
+
+  # Databases
+
+  storegetdb:
+    image: mongo
+    ports:
+      - '27019:27017'
+    volumes:
+      - storegetdb:/data/db
+    networks:
+      - myChartsNetwork
+    command: --quiet
+
+  userinfodb:
+    image: mongo
+    ports:
+      - '27020:27017'
+    volumes:
+      - userinfodb:/data/db
+    networks:
+      - myChartsNetwork
+    command: --quiet
+
+  userquotasdb:
+    image: mongo
+    ports:
+      - '27021:27017'
+    volumes:
+      - userquotasdb:/data/db
+    networks:
+      - myChartsNetwork
+    command: --quiet
+
+
+  #React Web Server
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "4007:4007"
+    networks:
+      - myChartsNetwork
+
+# Orchestrator
+  orchestrator:
+    build:
+      context: ./orchestrator
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    networks:
+      - myChartsNetwork
+
+  # Microservices
+
+  userinfoms:
+    build:
+      context: ./userInfoMicroservice
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      - myChartsNetwork
+
+  templatems:
+    build:
+      context: ./templateMicroservice
+      dockerfile: Dockerfile
+    ports:
+      - "3100:3100"
+    networks:
+      - myChartsNetwork
+
+  storegetms:
+    build:
+      context: ./storeGetMicroservice
+      dockerfile: Dockerfile
+    ports:
+      - "3200:3200"
+    networks:
+      - myChartsNetwork
+
+  transformtohighchartsms:
+    build:
+      context: ./transformToHighcharts
+      dockerfile: Dockerfile
+    ports:
+      - "3300:3300"
+    networks:
+      - myChartsNetwork
+
+  userquotasms:
+    build:
+      context: ./userQuotasmicroservice
+      dockerfile: Dockerfile
+    ports:
+      - "3400:3400"
+    networks:
+      - myChartsNetwork
+
+  validatems:
+    build:
+      context: ./validateMicroservice
+      dockerfile: Dockerfile
+    ports:
+      - "3500:3500"
+    networks:
+      - myChartsNetwork
+
+  # Keycloak
+  keycloak:
+    build:
+      context: ./keycloak
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+      - 8443:8443
+    volumes:
+      - ./certs/server.crt:/etc/x509/https/tls.crt
+      - ./certs/server.key:/etc/x509/https/tls.key
+    environment:
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+      - KEYCLOAK_HTTPS_PORT=8443
+      - KC_HTTPS_CERTIFICATE_FILE=/etc/x509/https/tls.crt
+      - KC_HTTPS_CERTIFICATE_KEY_FILE=/etc/x509/https/tls.key
+    networks:
+      - myChartsNetwork
+  
+
+volumes:
+  storegetdb:
+  userinfodb:
+  userquotasdb:
+
+networks:
+  myChartsNetwork:

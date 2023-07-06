@@ -1,0 +1,330 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+
+.my-button {
+  background-color: #4CAF50; /* Set the background color */
+  border: none; /* Remove the border */
+  color: white; /* Set the text color */
+  padding: 30px 60px; /* Set the padding */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center; /* Center the text */
+  text-decoration: none; /* Remove text underline */
+  font-size: 16px; /* Set the font size */
+  border-radius: 5px; /* Add some border radius */
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3); /* Add a box shadow */
+  transition: background-color 0.3s ease; /* Add a transition effect */
+}
+
+.buttons {
+  background-color: #243e11; /* Set the background color */
+  border: none; /* Remove the border */
+  color: white; /* Set the text color */
+  padding: 10px 10px; /* Set the padding */
+  text-align: center; /* Center the text */
+  text-decoration: none; /* Remove text underline */
+  font-size: 13px; /* Set the font size */
+  border-radius: 5px; /* Add some border radius */
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3); /* Add a box shadow */
+  transition: background-color 0.3s ease; /* Add a transition effect */
+}
+.top-div {
+  position: relative;
+  left: 0;
+  transition: 850ms;
+  margin-left: 50px;
+}
+
+.top-div.side {
+  left: 180px; /* as big as the sidebar */
+  transform: scale(0.9);
+  transition: 450ms;
+}
+
+.container {
+  overflow-x: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  grid-gap: 60px; /* Adjust the gap between the chart and table */
+  position: relative;
+  margin-top: 5%;
+}
+
+.chart-container {
+  flex: 1;
+}
+
+.ScrollableTable {
+  flex: 1;
+}
+
+
+/* Navbar CSS */
+.navbar {
+  background-color: #ffffff;
+  height: 80px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.menu-bars {
+  margin-left: 2rem;
+  font-size: 2rem;
+  background: none;
+  color: #309682;
+  z-index: 100;
+  position: fixed;
+}
+
+.nav-menu {
+  background-color: #161b22;
+  width: 250px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  left: -100%;
+  transition:left 850ms ease;
+  position: fixed;
+}
+
+.nav-menu.active {
+  left: 0;
+  transition: 450ms ease;
+}
+
+.nav-menu-items {
+  width: 100%;
+  margin-top: 62px;
+  padding-inline-start: 5px;
+}
+
+.nav-text {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 8px 0px 8px 16px;
+  list-style: none;
+  height: 60px;
+}
+
+.nav-text a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  width: 95%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  border-radius: 4px;
+}
+
+.nav-text a:hover {
+  background-color: #309682;
+  color: #fff;
+}
+
+.navbar-toggle {
+  background-color: #161b22;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  transition: 0s ease;
+}
+
+span {
+  margin-left: 16px;
+}
+
+/* Copyright css */
+.copyright{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f2f2f2; /* Adjust the background color as needed */
+  padding: 10px;
+  text-align: center;
+}
+
+.header {
+  position: fixed;
+  text-align: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px; /* Adjust the height as needed */
+  background-color: #161b22; /* Set the background color for the header */
+  z-index: 100;
+}
+
+.header-title {
+  margin: 0;
+  padding: 20px;
+  font-size: 24px; /* Adjust the font size as needed */
+  font-weight: bold;
+  color: #fff;
+
+}
+
+.demo-chart{
+  border: 5px ;
+  margin: auto;
+  width: 60%;
+  height: 40%;
+  padding: 5px;
+  text-align: center;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.fileupload {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
+}
+
+.centered-button{
+  background-color: #4CAF50; /* Set the background color */
+  border: none; /* Remove the border */
+  color: white; /* Set the text color */
+  padding: 10px 20px; /* Set the padding */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center; /* Center the text */
+  text-decoration: none; /* Remove text underline */
+  font-size: 16px; /* Set the font size */
+  border-radius: 5px; /* Add some border radius */
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3); /* Add a box shadow */
+  transition: background-color 0.3s ease; /* Add a transition effect */
+}
+
+.select-dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.select-dropdown select {
+  appearance: none;
+  outline: none;
+  width: 200px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+}
+
+.select-dropdown select:hover {
+  border-color: #aaa;
+}
+
+.select-dropdown select:focus {
+  border-color: #555;
+}
+
+.select-dropdown::after {
+  content: '\25BE';
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #888;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.loading-spinner {
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  border: 10px solid #161b22; /* Light grey */
+  border-top: 10px solid #309682; /* Black */
+  border-radius: 50%;
+  animation: spinner 1.5s linear infinite;
+}
+
+.row {
+  margin-top: 10px;
+  display: flex;
+  align-items: center; /* Vertically align items in the center */
+  justify-content: space-between;
+}
+.column {
+  flex-basis: 100%;
+}
+
+.banner {
+  display: flex;
+  flex-direction: column; /* Arrange elements vertically */
+  justify-content: flex-start; /* Align items to the start of the container */
+  align-items: center;
+  background-color: #161b22;
+  margin-right: 50px;
+  overflow-x: auto;
+  padding: 25px;
+}
+
+.banner-text {
+  color: #fff;
+  margin-bottom: 15px;
+  margin-top: 0px;
+}
+
+.photo-container {
+  display: flex;
+}
+
+.photo {
+  height: 350px;
+  margin: 0 30px; 
+}
+
+.table-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table th, .table td {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+.table th {
+  text-align: left;
+  background-color: #f2f2f2;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.table tbody tr:hover {
+  background-color: #e5e5e5;
+}

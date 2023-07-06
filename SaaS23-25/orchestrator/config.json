@@ -1,0 +1,8 @@
+{
+    "storeGetMicroservice": "storegetms",
+    "templateMicroservice": "templatems",
+    "transformToHighcharts": "transformtohighchartsms",
+    "userInfoMicroservice": "userinfoms",
+    "validateMicroservice": "validatems",
+    "userQuotasMicroservice": "userquotasms"
+}
